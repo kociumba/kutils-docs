@@ -8,12 +8,14 @@ icon: wrench
 
 Kutils provides a few built in functions that are available at runtime from Lua. These are some functions the are necessary for being able to do anything in the lua script, like `requireJVM` or just utility to make life easier, like `registerHudRenderer`. These are the currently available built-ins in the kutils runtime:
 
-| Function              | Description                                          |
-| --------------------- | ---------------------------------------------------- |
-| `requireJVM`          | Imports Java and Kotlin classes into the Lua script. |
-| `createLogger`        | Initializes a Minecraft logger with a custom prefix. |
-| `registerHudRenderer` | Registers a HUD render callback to draw custom UI.   |
-| `runOnMain`           | Executes code on the main Minecraft thread.          |
+| Function              | Description                                                                            |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| `requireJVM`          | Imports Java and Kotlin classes into the Lua script.                                   |
+| `createLogger`        | Initializes a Minecraft logger with a custom prefix.                                   |
+| `registerHudRenderer` | Registers a HUD render callback to draw custom UI.                                     |
+| `runOnMain`           | Executes code on the main Minecraft thread.                                            |
+| `isEnabled`           | Returns true if the current script is enabled by the user.                             |
+| `onDisable`           | Takes in a function that will be called as cleanup when the user disables this module. |
 
 *   #### **`requireJVM`**
 
@@ -58,3 +60,4 @@ Kutils provides a few built in functions that are available at runtime from Lua.
     end
     runOnMain(taskForTheMainThread)
     ```
+* #### For `isEnabled` and `onDisable` look in [interacting-with-java-and-kotlin.md](interacting-with-java-and-kotlin.md "mention"), for an overview.
