@@ -2,7 +2,6 @@
 icon: hand-wave
 cover: .gitbook/assets/bg_1.png
 coverY: -775.7443346891345
-layout: landing
 ---
 
 # Welcome to the kutils docs
