@@ -8,7 +8,16 @@ icon: wrench
 
 Kutils provides a few built in functions that are available at runtime from Lua. These are some functions the are necessary for being able to do anything in the lua script, like `requireJVM` or just utility to make life easier, like `registerHudRenderer`. These are the currently available built-ins in the kutils runtime:
 
-*   **`requireJVM`**: Imports Java and Kotlin classes:
+| Function              | Description                                                   |
+|-----------------------|---------------------------------------------------------------|
+| `requireJVM`          | Imports Java and Kotlin classes into the Lua script.          |
+| `createLogger`        | Initializes a Minecraft logger with a custom prefix.          |
+| `registerHudRenderer` | Registers a HUD render callback to draw custom UI.            |
+| `runOnMain`           | Executes code on the main Minecraft thread.                   |
+
+
+*   ### **`requireJVM`**
+      Imports Java and Kotlin classes:
 
     ```lua
     -- import the minecraft client class
@@ -16,7 +25,8 @@ Kutils provides a few built in functions that are available at runtime from Lua.
     -- import the jvm Thread class for threading management
     Thread = requireJVM("java.lang.Thread")
     ```
-*   **`createLogger`**: Initializes a Minecraft logger with a custom prefix:
+*   ### **`createLogger`**
+      Initializes a Minecraft logger with a custom prefix:
 
     ```lua
     -- crates a logger with the supplied prefix
@@ -27,7 +37,8 @@ Kutils provides a few built in functions that are available at runtime from Lua.
     log.error("We messed up big time")
     log.debug("Only visible in the seperate debug.log")
     ```
-*   **`registerHudRenderer`**: Registers a HUD render callback to draw anything to the HUD, more info on how to draw UI in Minecraft [here](https://docs.fabricmc.net/develop/rendering/basic-concepts):
+*   ### **`registerHudRenderer`**
+      Registers a HUD render callback to draw anything to the HUD, more info on how to draw UI in Minecraft [here](https://docs.fabricmc.net/develop/rendering/basic-concepts):
 
     ```lua
     local function renderHud(drawContext, tickDelta)
@@ -35,7 +46,8 @@ Kutils provides a few built in functions that are available at runtime from Lua.
     end
     registerHudRenderer(renderHud) -- register the rendering callback
     ```
-* `runOnMain:` Executes the provided function on the main Minecraft thread, which is required for rendering. If you are going to do any threading, this will be immensely useful:
+*   ### **`runOnMain`**
+       Executes the provided function on the main Minecraft thread, which is required for rendering. If you are going to do any threading, this will be immensely useful:
 
     ```lua
     local function taskForTheMainThread()
