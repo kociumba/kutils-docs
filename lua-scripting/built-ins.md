@@ -36,11 +36,10 @@ Kutils provides a few built in functions that are available at runtime from Lua.
     registerHudRenderer(renderHud) -- register the rendering callback
     ```
 * `runOnMain:` Executes the provided function on the main Minecraft thread, which is required for rendering. If you are going to do any threading, this will be immensely useful:
-* {% code fullWidth="false" %}
-  ```lua
-  local function taskForTheMainThread()
-      -- Any code really 🤷
-  end
-  runOnMain(taskForTheMainThread)
-  ```
-  {% endcode %}
+
+    ```lua
+    local function taskForTheMainThread()
+        -- Any code really 🤷
+    end
+    runOnMain(taskForTheMainThread)
+    ```
