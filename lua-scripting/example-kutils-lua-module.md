@@ -6,6 +6,12 @@ icon: clipboard-list-check
 
 Here is a Lua script example for a kutils user module. It displays and dynamically updates text on the screen:
 
+result in game:
+
+<figure><img src="../.gitbook/assets/2025-01-08_17.35.12.png" alt="ui rendering showcase from a kutils lua module"><figcaption><p>UI rendering showcase from a kutils lua module</p></figcaption></figure>
+
+the code:
+
 {% code title="example.lua" %}
 ```lua
 -- Import required classes with the built in requireJVM type, which allows for importing classes loaded in the minecraft runtime
