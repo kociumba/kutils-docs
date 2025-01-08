@@ -8,7 +8,7 @@ Here is a Lua script example for a kutils user module. It displays and dynamical
 
 result in game:
 
-<figure><img src="../.gitbook/assets/2025-01-08_17.35.12.png" alt="ui rendering showcase from a kutils lua module"><figcaption><p>UI rendering showcase from a kutils lua module</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/2025-01-08_22.58.32.png" alt="ui rendering showcase from a kutils lua module"><figcaption><p>UI rendering showcase from a kutils lua module</p></figcaption></figure>
 
 the code:
 
