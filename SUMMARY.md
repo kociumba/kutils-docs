@@ -2,6 +2,10 @@
 
 * [Welcome to the kutils docs](README.md)
 
+## general info
+
+* [FAQ](general-info/faq.md)
+
 ## LUA scripting
 
 * [Getting started with kutils lua modules](lua-scripting/getting-started-with-kutils-lua-modules.md)
