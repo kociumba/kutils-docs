@@ -89,7 +89,11 @@ local updateThread = Thread(function()
     -- similarly you can run things while this script is enabled by checking this built-in
     while isEnabled() do
         counter = counter + 1
-        Thread:sleep(1000)  -- Update every second
+        
+        -- sleep the thread for a second for demonstarion
+        -- IMPORTANT: try to avoid sleeping threads when possible
+        -- since this will couse an error if the user disables your module during the sleep
+        Thread:sleep(1000)
     end
 end)
 updateThread:start()
