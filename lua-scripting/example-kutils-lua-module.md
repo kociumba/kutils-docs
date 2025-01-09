@@ -84,16 +84,22 @@ end
 -- Register HUD render callback with the built in hud render callback, this allows for drawing anything on the players hud
 registerHudRenderer(renderHud)
 
+-- Variable to keep track of timed updates
+local lastUpdateTime = os.time()
+
 -- Background thread for updates
+-- This uses the standard Lua os module for updating every second instead of Thread:sleep().
+-- Sleeping threads should be avoided because if the user disables the script while the thread is sleeping, it causes an error.
 local updateThread = Thread(function()
-    -- similarly you can run things while this script is enabled by checking this built-in
+    -- Run updates while this script is enabled
     while isEnabled() do
-        counter = counter + 1
-        
-        -- sleep the thread for a second for demonstarion
-        -- IMPORTANT: try to avoid sleeping threads when possible
-        -- since this will couse an error if the user disables your module during the sleep
-        Thread:sleep(1000)
+        local currentTime = os.time()
+        -- Update counter every second
+        if os.difftime(currentTime, lastUpdateTime) >= 1 then
+            counter = counter + 1
+            lastUpdateTime = currentTime
+        end
+        Thread:yield() -- Yield to prevent busy-waiting
     end
 end)
 updateThread:start()
@@ -103,8 +109,8 @@ onDisable(function()
     log.info("Cleaning up UI showcase...")
     -- Reset counter
     counter = 0
-    -- Note: We should skip stopping the thread manually, couse it already checks isEnabled()
-    -- we could also use: updateThread:interrupt()
+    -- Safely interrupt the background thread
+    updateThread:interrupt()
 end)
 
 log.info("UI showcase initialized!")
